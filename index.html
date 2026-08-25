@@ -97,35 +97,70 @@ ul{padding-left:20px}
 </section>
 
 <section id="bieumau" class="card">
-<h2>📥 Tải biểu mẫu</h2>
-<div class="grid">
-  <div class="tool">
-    <span class="badge">Mẫu số 08</span>
-    <h3>Phương án khai thác</h3>
-    <p>Dành cho hộ gia đình, cá nhân, cộng đồng dân cư trong trường hợp phù hợp.</p>
-    <a class="btn" href="Mau_08_Phuong_an_khai_thac_HGD_CN_CD.docx">Tải Word</a>
-    <a class="btn secondary" href="#huongdan">Xem cách ghi</a>
+  <h2>📥 Tải biểu mẫu</h2>
+
+  <div class="grid">
+
+    <div class="tool">
+      <span class="badge">Mẫu số 08</span>
+      <h3>Phương án khai thác</h3>
+      <p>Dành cho hộ gia đình, cá nhân, cộng đồng dân cư trong trường hợp phù hợp.</p>
+
+      <a class="btn"
+         href="./Mau_08_Phuong_an_khai_thac_HGD_CN_CD.docx"
+         download="Mau_08_Phuong_an_khai_thac.docx">
+        📥 Tải Mẫu số 08
+      </a>
+
+      <a class="btn secondary" href="#huongdan">
+        📖 Xem cách ghi
+      </a>
+    </div>
+
+
+    <div class="tool">
+      <span class="badge">Mẫu số 01</span>
+      <h3>Bảng kê lâm sản</h3>
+      <p>Dùng để kê khai thông tin lâm sản sau khai thác và trong các trường hợp theo quy định.</p>
+
+      <a class="btn"
+         href="./Mau_01_Bang_ke_lam_san_hien_hanh_2026.docx"
+         download="Mau_01_Bang_ke_lam_san.docx">
+        📥 Tải Mẫu số 01
+      </a>
+
+      <a class="btn secondary" href="#huongdan">
+        📖 Xem cách ghi
+      </a>
+    </div>
+
+
+    <div class="tool">
+      <span class="badge">Mẫu số 03</span>
+      <h3>Đơn đề nghị xác nhận Bảng kê lâm sản</h3>
+      <p>Dùng khi lâm sản thuộc trường hợp phải đề nghị cơ quan Kiểm lâm sở tại xác nhận.</p>
+
+      <a class="btn"
+         href="./Mau_03_Don_de_nghi_xac_nhan_BKLS.docx"
+         download="Mau_03_Don_de_nghi_xac_nhan_BKLS.docx">
+        📥 Tải Mẫu số 03
+      </a>
+    </div>
+
+
+    <div class="tool">
+      <span class="badge">Tài liệu hỗ trợ</span>
+      <h3>Hướng dẫn nhanh 6 bước</h3>
+      <p>Tài liệu tóm tắt từ chuẩn bị phương án đến lập Bảng kê sau khai thác.</p>
+
+      <a class="btn"
+         href="./Huong_dan_nhanh_khai_thac_va_BKLS.docx"
+         download="Huong_dan_nhanh_khai_thac_va_BKLS.docx">
+        📥 Tải hướng dẫn
+      </a>
+    </div>
+
   </div>
-  <div class="tool">
-    <span class="badge">Mẫu số 01</span>
-    <h3>Bảng kê lâm sản</h3>
-    <p>Dùng để kê khai thông tin lâm sản sau khai thác và trong các trường hợp theo quy định.</p>
-    <a class="btn" href="Mau_01_Bang_ke_lam_san_hien_hanh_2026.docx">Tải Word</a>
-    <a class="btn secondary" href="#huongdan">Xem cách ghi</a>
-  </div>
-  <div class="tool">
-    <span class="badge">Mẫu số 03</span>
-    <h3>Đơn đề nghị xác nhận Bảng kê</h3>
-    <p>Dùng khi lâm sản thuộc trường hợp phải đề nghị cơ quan Kiểm lâm sở tại xác nhận.</p>
-    <a class="btn" href="Mau_03_Don_de_nghi_xac_nhan_BKLS.docx">Tải Word</a>
-  </div>
-  <div class="tool">
-    <span class="badge">Tài liệu hỗ trợ</span>
-    <h3>Hướng dẫn nhanh 6 bước</h3>
-    <p>Tài liệu tóm tắt từ chuẩn bị phương án đến lập Bảng kê sau khai thác.</p>
-    <a class="btn" href="Huong_dan_nhanh_khai_thac_va_BKLS.docx">Tải Word</a>
-  </div>
-</div>
 </section>
 
 <section id="huongdan" class="card">
@@ -207,8 +242,8 @@ ul{padding-left:20px}
   };
 
   function link(file,label){
-    return '<a class="btn" href="'+file+'">'+label+'</a>';
-  }
+  return '<a class="btn" href="./'+file+'" download>'+label+'</a>';
+} 
 
   btn.addEventListener('click', function(){
     let html='';
