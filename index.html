@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bộ công cụ hỗ trợ khai thác và lập hồ sơ lâm sản</title>
+<style>
+:root{
+  --green:#1f6b3a; --green2:#2f8652; --light:#f4f8f5; --card:#fff;
+  --text:#20352a; --muted:#65746b; --line:#dce7df; --amber:#fff7df;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--text);line-height:1.55}
+.wrap{max-width:980px;margin:auto;padding:0 16px}
+header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:26px 0 30px;text-align:center}
+.agency{font-size:14px;font-weight:700;letter-spacing:.03em}
+header h1{font-size:29px;line-height:1.2;margin:15px 0 8px}
+header p{margin:0;opacity:.94}
+.quicknav{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.quicknav a{background:#fff;color:var(--green);padding:12px 8px;border-radius:11px;text-decoration:none;font-weight:700;font-size:14px}
+main{padding:18px 0 35px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:0 3px 12px rgba(0,0,0,.035)}
+.notice{background:var(--amber);border:1px solid #ead699;border-radius:14px;padding:14px 16px;margin:14px 0}
+h2{color:var(--green);margin:0 0 12px;font-size:21px}
+h3{margin:8px 0;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tool{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fbfdfb}
+.btn{display:inline-block;background:var(--green);color:white;text-decoration:none;font-weight:700;padding:10px 13px;border-radius:9px;margin:5px 5px 0 0;border:0;cursor:pointer}
+.btn.secondary{background:white;color:var(--green);border:1px solid var(--green)}
+.selector{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-weight:700;display:block;margin-bottom:5px}
+select{width:100%;font-size:16px;padding:11px;border:1px solid #cbd8cf;border-radius:9px;background:white}
+.result{margin-top:14px;padding:15px;border-radius:12px;background:#f5faf6;border-left:5px solid var(--green);display:none}
+.step{padding:11px 0;border-bottom:1px dashed #d8e3db}
+.step:last-child{border-bottom:0}
+.badge{display:inline-block;background:#eaf4ed;color:var(--green);font-weight:700;border-radius:999px;padding:5px 9px;font-size:13px;margin-bottom:5px}
+details{border-top:1px solid var(--line);padding:11px 0}
+details:first-of-type{border-top:0}
+summary{font-weight:700;cursor:pointer}
+footer{background:#eaf2ec;padding:25px 0;text-align:center;border-top:1px solid var(--line)}
+.author{font-weight:700;color:var(--green);font-size:17px}
+.small{font-size:13px;color:var(--muted)}
+ul{padding-left:20px}
+@media(max-width:720px){
+ .quicknav,.grid,.selector{grid-template-columns:1fr 1fr}
+ header h1{font-size:24px}
+}
+@media(max-width:480px){
+ .quicknav,.grid,.selector{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <div class="agency">CHI CỤC KIỂM LÂM TỈNH QUẢNG TRỊ</div>
+  <div class="agency">HẠT KIỂM LÂM LỆ THỦY</div>
+  <h1>BỘ CÔNG CỤ HỖ TRỢ KHAI THÁC<br>VÀ LẬP HỒ SƠ LÂM SẢN</h1>
+  <p>Tra cứu • Hướng dẫn • Tải biểu mẫu • Chủ động chuẩn bị hồ sơ</p>
+  <div class="quicknav">
+    <a href="#canlamgi">Tôi cần làm gì?</a>
+    <a href="#bieumau">Tải biểu mẫu</a>
+    <a href="#huongdan">Hướng dẫn</a>
+    <a href="#faq">Câu hỏi thường gặp</a>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+<div class="notice">
+<b>Lưu ý:</b> Đây là công cụ hỗ trợ tuyên truyền và hướng dẫn. Người dân cần đối chiếu quy định hiện hành và thực hiện hồ sơ tại cơ quan/hệ thống có thẩm quyền. Biểu mẫu cần được rà soát, cập nhật khi pháp luật thay đổi.
+</div>
+
+<section id="canlamgi" class="card">
+<h2>🌳 Tôi cần làm gì?</h2>
+<p>Chọn trường hợp gần nhất với nhu cầu của bạn. Công cụ sẽ gợi ý trình tự và biểu mẫu cần chuẩn bị.</p>
+<div class="selector">
+  <div>
+    <label for="doituong">Tôi là</label>
+    <select id="doituong">
+      <option value="hgd">Hộ gia đình / cá nhân</option>
+      <option value="tochuc">Tổ chức</option>
+    </select>
+  </div>
+  <div>
+    <label for="nhucau">Nhu cầu</label>
+    <select id="nhucau">
+      <option value="rungtrong">Khai thác rừng trồng</option>
+      <option value="bkls">Lập Bảng kê lâm sản</option>
+      <option value="xacnhan">Đề nghị xác nhận Bảng kê lâm sản</option>
+    </select>
+  </div>
+</div>
+<button class="btn" id="showGuide" type="button">Xem hướng dẫn</button>
+
+<div id="result" class="result" aria-live="polite"></div>
+</section>
+
+<section id="bieumau" class="card">
+<h2>📥 Tải biểu mẫu</h2>
+<div class="grid">
+  <div class="tool">
+    <span class="badge">Mẫu số 08</span>
+    <h3>Phương án khai thác</h3>
+    <p>Dành cho hộ gia đình, cá nhân, cộng đồng dân cư trong trường hợp phù hợp.</p>
+    <a class="btn" href="Mau_08_Phuong_an_khai_thac_HGD_CN_CD.docx">Tải Word</a>
+    <a class="btn secondary" href="#huongdan">Xem cách ghi</a>
+  </div>
+  <div class="tool">
+    <span class="badge">Mẫu số 01</span>
+    <h3>Bảng kê lâm sản</h3>
+    <p>Dùng để kê khai thông tin lâm sản sau khai thác và trong các trường hợp theo quy định.</p>
+    <a class="btn" href="Mau_01_Bang_ke_lam_san_hien_hanh_2026.docx">Tải Word</a>
+    <a class="btn secondary" href="#huongdan">Xem cách ghi</a>
+  </div>
+  <div class="tool">
+    <span class="badge">Mẫu số 03</span>
+    <h3>Đơn đề nghị xác nhận Bảng kê</h3>
+    <p>Dùng khi lâm sản thuộc trường hợp phải đề nghị cơ quan Kiểm lâm sở tại xác nhận.</p>
+    <a class="btn" href="Mau_03_Don_de_nghi_xac_nhan_BKLS.docx">Tải Word</a>
+  </div>
+  <div class="tool">
+    <span class="badge">Tài liệu hỗ trợ</span>
+    <h3>Hướng dẫn nhanh 6 bước</h3>
+    <p>Tài liệu tóm tắt từ chuẩn bị phương án đến lập Bảng kê sau khai thác.</p>
+    <a class="btn" href="Huong_dan_nhanh_khai_thac_va_BKLS.docx">Tải Word</a>
+  </div>
+</div>
+</section>
+
+<section id="huongdan" class="card">
+<h2>📖 Hướng dẫn cách thực hiện</h2>
+
+<h3>1. Khi lập Phương án khai thác</h3>
+<ul>
+  <li>Ghi đầy đủ thông tin chủ rừng, số CCCD, địa chỉ và số điện thoại.</li>
+  <li>Ghi rõ loại rừng, loài cây, năm trồng; vị trí lô, khoảnh, tiểu khu, xã.</li>
+  <li>Ghi diện tích và thông tin tọa độ theo yêu cầu của biểu mẫu hiện hành.</li>
+  <li>Xác định phương thức, hình thức khai thác, sản lượng dự kiến và thời gian thực hiện.</li>
+  <li>Nêu giải pháp phục hồi rừng sau khai thác nếu thuộc trường hợp phải thực hiện.</li>
+</ul>
+
+<h3>2. Khi lập Bảng kê lâm sản</h3>
+<ul>
+  <li>Ghi chính xác thông tin chủ lâm sản và nguồn gốc lâm sản.</li>
+  <li>Ghi thông tin lô khai thác, mã số rừng trồng nếu có và các thông tin truy xuất nguồn gốc liên quan.</li>
+  <li>Kê khai đầy đủ tên loài, số lượng, khối lượng và đơn vị tính.</li>
+  <li>Nếu có vận chuyển, ghi rõ phương tiện, thời gian và nơi đi – nơi đến.</li>
+</ul>
+
+<h3>3. Khi đề nghị xác nhận Bảng kê</h3>
+<ul>
+  <li>Chuẩn bị Đơn đề nghị xác nhận.</li>
+  <li>Kèm Bảng kê lâm sản.</li>
+  <li>Kèm bản sao Phương án khai thác và các tài liệu liên quan theo trường hợp cụ thể.</li>
+  <li>Nộp tại cơ quan Kiểm lâm sở tại có thẩm quyền.</li>
+</ul>
+</section>
+
+<section id="faq" class="card">
+<h2>❓ Câu hỏi thường gặp</h2>
+<details>
+<summary>Tôi có thể tải mẫu về điện thoại rồi tự điền không?</summary>
+<p>Có. Bạn có thể tải file Word về điện thoại hoặc máy tính, điền trước các thông tin đã biết và kiểm tra lại trước khi nộp.</p>
+</details>
+<details>
+<summary>Mọi trường hợp Bảng kê lâm sản đều phải xác nhận phải không?</summary>
+<p>Không. Chỉ các trường hợp thuộc đối tượng phải xác nhận theo quy định mới thực hiện bước xác nhận. Nếu chưa rõ, nên liên hệ cơ quan Kiểm lâm sở tại để được hướng dẫn đúng trường hợp.</p>
+</details>
+<details>
+<summary>Tôi chưa biết tọa độ lô khai thác thì làm thế nào?</summary>
+<p>Cần xác định tọa độ theo yêu cầu của biểu mẫu và quy định hiện hành. Người dân có thể liên hệ công chức Kiểm lâm phụ trách địa bàn để được hướng dẫn cách xác định và ghi thông tin phù hợp.</p>
+</details>
+<details>
+<summary>Trang này có phải là nơi nộp hồ sơ trực tuyến không?</summary>
+<p>Không. Trang này là công cụ hỗ trợ tra cứu và chuẩn bị hồ sơ. Hồ sơ chính thức phải nộp tại cơ quan hoặc hệ thống có thẩm quyền.</p>
+</details>
+</section>
+
+<section class="card">
+<h2>☎️ Hỗ trợ tại địa bàn</h2>
+<p>Công chức Kiểm lâm phụ trách địa bàn thực hiện tuyên truyền, hướng dẫn người dân nhận biết thủ tục, chuẩn bị biểu mẫu và tiếp cận đúng cơ quan có thẩm quyền.</p>
+<p class="small">Không nhập thông tin bí mật nhà nước hoặc dữ liệu cá nhân không cần thiết khi trao đổi qua các kênh trực tuyến.</p>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+  <div class="small">NGƯỜI THỰC HIỆN</div>
+  <div class="author">Trương Thị Nhàn – Kiểm lâm viên</div>
+  <p class="small">Ứng dụng mã QR trong tuyên truyền, hướng dẫn và hỗ trợ người dân tiếp cận thủ tục hành chính lĩnh vực lâm nghiệp.</p>
+</div>
+</footer>
+
+<script>
+(function(){
+  const btn=document.getElementById('showGuide');
+  const result=document.getElementById('result');
+  const dt=document.getElementById('doituong');
+  const need=document.getElementById('nhucau');
+
+  const files={
+    m08:'Mau_08_Phuong_an_khai_thac_HGD_CN_CD.docx',
+    m01:'Mau_01_Bang_ke_lam_san_hien_hanh_2026.docx',
+    m03:'Mau_03_Don_de_nghi_xac_nhan_BKLS.docx'
+  };
+
+  function link(file,label){
+    return '<a class="btn" href="'+file+'">'+label+'</a>';
+  }
+
+  btn.addEventListener('click', function(){
+    let html='';
+    if(need.value==='rungtrong'){
+      html += '<div class="step"><b>Bước 1:</b> Xác định đúng đối tượng và trường hợp khai thác.</div>';
+      html += '<div class="step"><b>Bước 2:</b> Lập Phương án khai thác, ghi đầy đủ vị trí, diện tích, tọa độ, loài cây, sản lượng và thời gian.</div>';
+      html += '<div class="step"><b>Bước 3:</b> Gửi hồ sơ đến cơ quan Kiểm lâm sở tại theo quy định trước khi khai thác.</div>';
+      html += '<div class="step"><b>Bước 4:</b> Khai thác đúng nội dung phương án.</div>';
+      html += '<div class="step"><b>Bước 5:</b> Sau khai thác, lập Bảng kê lâm sản.</div>';
+      html += '<div class="step"><b>Bước 6:</b> Nếu thuộc đối tượng phải xác nhận, lập thêm Đơn đề nghị xác nhận Bảng kê.</div>';
+      html += '<p>'+link(files.m08,'Tải Mẫu 08')+link(files.m01,'Tải Mẫu 01')+link(files.m03,'Tải Mẫu 03')+'</p>';
+    } else if(need.value==='bkls'){
+      html += '<div class="step"><b>1.</b> Chuẩn bị thông tin chủ lâm sản và nguồn gốc lâm sản.</div>';
+      html += '<div class="step"><b>2.</b> Ghi thông tin lô khai thác, tên loài, số lượng và khối lượng.</div>';
+      html += '<div class="step"><b>3.</b> Bổ sung thông tin vận chuyển nếu có.</div>';
+      html += '<div class="step"><b>4.</b> Kiểm tra xem trường hợp của bạn có thuộc diện phải xác nhận Bảng kê hay không.</div>';
+      html += '<p>'+link(files.m01,'Tải Bảng kê lâm sản')+'</p>';
+    } else {
+      html += '<div class="step"><b>Hồ sơ cơ bản:</b> Đơn đề nghị xác nhận + Bảng kê lâm sản + bản sao Phương án khai thác và tài liệu liên quan theo trường hợp.</div>';
+      html += '<div class="step"><b>Nơi thực hiện:</b> Cơ quan Kiểm lâm sở tại có thẩm quyền.</div>';
+      html += '<p>'+link(files.m03,'Tải Đơn đề nghị')+link(files.m01,'Tải Bảng kê')+link(files.m08,'Tải Phương án')+'</p>';
+    }
+
+    if(dt.value==='tochuc'){
+      html += '<p class="small"><b>Lưu ý:</b> Bạn đang chọn đối tượng là tổ chức. Cần đối chiếu đúng mẫu và yêu cầu áp dụng cho tổ chức trước khi sử dụng biểu mẫu.</p>';
+    }
+    result.innerHTML=html;
+    result.style.display='block';
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+})();
+</script>
+</body>
+</html>
